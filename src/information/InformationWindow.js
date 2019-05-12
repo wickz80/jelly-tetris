@@ -26,13 +26,18 @@ class InformationWindow extends React.Component {
         <div>NEXT</div>
         <Grid grid={BlockGrid(this.props.holdBlock)} />
         <div>HOLD (shift)</div>
+        <br />
 
-        <div id="removed-lines">Lines: {this.props.removedLines}</div>
-        <div id="levels">Level: {this.props.levels}</div>
+        <div id="info-text">Lines: {this.props.removedLines}</div>
+        <div id="info-text">Level: {this.props.levels}</div>
+        <br />
+        <div id="info-text">
+          <a href="https://github.com/kyunooh/jelly-tetris">github</a>
+        </div>
         <button
           id="prevent-reset"
           ref={this.props.preventFocus}
-          style={{ width: "0px", height: "0px" }}
+          style={{ width: "0px", height: "0px", display: "None" }}
         />
         <button className="reset-button" onClick={this.props.reset}>
           Reset
@@ -41,7 +46,7 @@ class InformationWindow extends React.Component {
           <audio
             id="bgm-audio"
             ref={this.props.bgmAudio}
-            controls
+            autoPlay="true"
             onPause={this.props.pauseBgm}
             onPlay={this.props.playBgm}
             loop
@@ -52,18 +57,7 @@ class InformationWindow extends React.Component {
             />
           </audio>
         </div>
-        <div>
-          <a
-            href="https://github.com/kyunooh/jelly-tetris"
-            style={{
-              "textDecoration": "none",
-              color: "#AAF",
-              "fontSize": "20px"
-            }}
-          >
-            Github
-          </a>
-        </div>
+
       </div>
     );
   }
